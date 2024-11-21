@@ -2,7 +2,21 @@ const postsData = require("../data/array");
 
 //index
 function index(req, res) {
-  res.json(postsData);
+  const { tags, titolo } = req.query;
+
+  let filteredPosts = [...postsData];
+
+  if (tags) {
+    filteredPosts = filteredPosts.filter((post) => post.tags.includes(tags));
+  }
+
+  if (titolo) {
+    filteredPosts = filteredPosts.filter(
+      (post) => post.titolo.toLowerCase() === titolo.toLowerCase()
+    );
+  }
+
+  res.json(filteredPosts);
 }
 
 //show
