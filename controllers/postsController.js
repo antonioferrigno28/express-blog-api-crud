@@ -30,7 +30,19 @@ function update(req, res) {
 
 //destroy
 function destroy(req, res) {
-  res.json("Eliminazione del post " + req.params.id);
+  const id = parseInt(req.params.id);
+
+  const post = postsData.find((post) => post.id === id);
+
+  if (!post) {
+    res.status(418).json({ error: "Post non trovato, sono solo una teiera" });
+  }
+  const postIndex = postsData.indexOf(post);
+
+  postsData.splice(postIndex, 1);
+
+  console.log(postsData);
+  res.sendStatus(204);
 }
 
 module.exports = { index, show, store, update, destroy };
