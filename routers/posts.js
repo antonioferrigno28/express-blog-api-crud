@@ -19,7 +19,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const express = require("express");
 const router = express.Router();
-const posts = require("../data/array");
+
 const postsController = require("../controllers/postsController");
 
 // index

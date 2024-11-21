@@ -20,17 +20,17 @@ function show(req, res) {
 
 //store (create)
 function store(req, res) {
-  res.send("Creazione nuovo post");
+  res.json("Creazione nuovo post");
 }
 
 //update
 function update(req, res) {
-  res.send("Modifica per intero dell'elemento " + req.params.id);
+  res.json("Modifica per intero dell'elemento " + req.params.id);
 }
 
 //destroy
 function destroy(req, res) {
-  res.send("Eliminazione del post " + req.params.id);
+  res.json("Eliminazione del post " + req.params.id);
 }
 
 module.exports = { index, show, store, update, destroy };
