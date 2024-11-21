@@ -1,53 +1,40 @@
-// Usando l'array dei post fornito con le relative immagini, creare un file di routing (routers/posts.js) che conterrà le rotte necessario per l'entità post.
-// All'interno creare le rotte per le operazioni CRUD (Index, Show, Create, Update e Delete)
-// Tutte le risposte saranno dei testi che confermeranno l’operazione che il server deve eseguire, secondo le convenzioni REST.
+// Milestone 1
+// Come prima cosa, creiamo un controller per i nostri post, in una cartella controllers.
+// All’interno, prepariamo tutte le funzioni necessarie e copiamo in ciascuna la logica delle funzioni che attualmente si trovano nel router (al momento restituiscono solo dei messaggi).
+// Poi torniamo sul file delle rotte. Qui importiamo le funzioni dichiarate nel controller e le associamo alle varie rotte, come visto in classe.
+// Testiamo su postman se chiamando gli endpoint riceviamo effettivamente le stesse risposte che avevamo prima.
+// Se tutto funziona, passiamo alla prossima milestone
 
-// Ad esempio:
-// Se viene chiamata /posts col verbo GET ci aspettiamo “Lista dei post”;
-// Se viene chiamato /posts/1 col verbo DELETE ci aspettiamo “Cancellazione del post 1”
-// e via dicendo…
-// Registrare il router dentro app.js con il prefisso posts/.
+// Milestone 2
+// Per iniziare, creiamo una cartella data in cui creare un file che contenga ed esporti l’array di posts che trovate in allegato. Importiamo questo file in cima al controller.
+// Ora passiamo ad implementare le logiche delle nostre CRUD:
+// Index dovrà restituire la lista dei post in formato JSON
+// Show dovrà restituire un singolo post in formato JSON
+// Destroy dovrà eliminare un singolo post dalla lista, stampare nel terminale (console.log) la lista aggiornata, e rispondere con uno stato 204 e nessun contenuto.
 
 // Bonus
-// Provare a restituire la lista dei post dalla rotta index, in formato json
-// Provare a restituire un singolo post dalla rotta show, sempre in formato json
-
+// Implementare un filtro di ricerca nella index che mostri solo i post che hanno un determinato Tag
+// In Show e Destroy, controllare se il parametro si riferisce ad un post esistente, in caso contrario, rispondere con uno stato 404 e un messaggio d’errore, sempre in formato JSON.
+// Buon Lavoro e buon divertimento
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const express = require("express");
 const router = express.Router();
 const posts = require("../data/array");
+const postsController = require("../controllers/postsController");
 
 // index
-router.get("/", function (req, res) {
-  res.json(posts);
-});
+router.get("/", postsController.index);
 
 // show
-router.get("/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-
-  const post = posts.find((post) => post.id === id);
-
-  if (post) {
-    res.json(post);
-  } else {
-    res.status(418).json({ error: "Post non trovato, sono solo una teiera" });
-  }
-});
+router.get("/:id", postsController.show);
 
 //store (create)
-router.post("/", (req, res) => {
-  res.send("Creazione nuovo post");
-});
+router.post("/", postsController.store);
 
 // update
-router.put("/:id", (req, res) => {
-  res.send("Modifica per intero dell'elemento " + req.params.id);
-});
+router.put("/:id", postsController.update);
 
 // destroy
-router.delete("/:id", function (req, res) {
-  res.send("Eliminazione del post " + req.params.id);
-});
+router.delete("/:id", postsController.destroy);
 
 module.exports = router;
