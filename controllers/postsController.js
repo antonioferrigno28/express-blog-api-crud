@@ -38,7 +38,7 @@ function store(req, res) {
   const id = postsData.at(-1).id + 1;
 
   if (!titolo || !contenuto || !immagine || !tags) {
-    return res.status(400).json({ error: "invalid parameters" });
+    return res.status(400).json({ error: "Parametri errati" });
   }
 
   const newPost = { id, titolo, contenuto, immagine, tags };
@@ -51,7 +51,29 @@ function store(req, res) {
 
 //update
 function update(req, res) {
-  res.json("Modifica per intero dell'elemento " + req.params.id);
+  const id = parseInt(req.params.id);
+
+  let post = postsData.find((post) => post.id === id);
+
+  if (!post) {
+    return res.status(418).json({
+      error: "Post non trovato",
+    });
+  }
+
+  const { titolo, contenuto, immagine, tags } = req.body;
+
+  if (!titolo || !contenuto || !immagine || !tags) {
+    return res.status(418).json({
+      error: "Parametri sbagliati",
+    });
+  }
+
+  post.titolo = titolo;
+  post.contenuto = contenuto;
+  post.immagine = immagine;
+  post.tags = tags;
+  res.json(post);
 }
 
 //destroy
