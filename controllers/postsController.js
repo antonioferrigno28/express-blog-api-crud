@@ -34,7 +34,19 @@ function show(req, res) {
 
 //store (create)
 function store(req, res) {
-  res.json("Creazione nuovo post");
+  const { titolo, contenuto, immagine, tags } = req.body;
+  const id = postsData.at(-1).id + 1;
+
+  if (!titolo || !contenuto || !immagine || !tags) {
+    return res.status(400).json({ error: "invalid parameters" });
+  }
+
+  const newPost = { id, titolo, contenuto, immagine, tags };
+  postsData.push(newPost);
+
+  console.log(newPost);
+
+  res.json(newPost);
 }
 
 //update
