@@ -22,6 +22,7 @@ const app = express();
 const port = 3000;
 const postsRouter = require("./routers/posts");
 const notFoundMiddleware = require("./middlewares/notFoundMiddleware");
+const errorMiddleware = require("./middlewares/errorMiddleware.js");
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -33,6 +34,8 @@ app.get("/", (req, res) => {
 app.use("/posts", postsRouter);
 
 app.use(notFoundMiddleware);
+
+app.use(errorMiddleware);
 
 app.listen(port, () => {
   console.log(`Server in ascolto su http://localhost:${port}`);
