@@ -1,5 +1,6 @@
 const posts = [
   {
+    id: 1,
     autore: "Mario Arrigo",
     contenuto: "Oggi voglio oziare",
     immagine:
@@ -8,6 +9,7 @@ const posts = [
     published: true,
   },
   {
+    id: 2,
     autore: "Giulia Zocchio",
     contenuto: "Oggi ho scoperto qualcosa di nuovo!",
     immagine:
@@ -16,6 +18,7 @@ const posts = [
     published: true,
   },
   {
+    id: 3,
     autore: "Luca Assisi",
     contenuto: "Warzonata?",
     immagine:
@@ -24,6 +27,7 @@ const posts = [
     published: true,
   },
   {
+    id: 4,
     autore: "Anna Pela",
     contenuto: "Preferisco CS:GO",
     immagine:
@@ -32,6 +36,7 @@ const posts = [
     published: true,
   },
   {
+    id: 5,
     autore: "Paolo Dolo",
     contenuto: "Qualcuno ha visto l'ultima serie TV?",
     immagine:
