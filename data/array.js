@@ -1,39 +1,43 @@
 const posts = [
   {
-    id: 1,
-    titolo: "Post 1",
-    contenuto: "Questo è il contenuto del primo post.",
-    immagine: "/images/ciambellone.jpeg",
-    tags: ["generico", "esempio", "blog"],
+    autore: "Mario Arrigo",
+    contenuto: "Oggi voglio oziare",
+    immagine:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PA-ZUKVhMSZxnX1X54Fwmvh-4HL03xj6Lw&s",
+    categoria: "Ozio",
+    published: true,
   },
   {
-    id: 2,
-    titolo: "Post 2",
-    contenuto: "Questo è il contenuto del secondo post.",
-    immagine: "/images/cracker_barbabietola.jpeg",
-    tags: ["tutorial", "articolo", "guida"],
+    autore: "Giulia Zocchio",
+    contenuto: "Oggi ho scoperto qualcosa di nuovo!",
+    immagine:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PA-ZUKVhMSZxnX1X54Fwmvh-4HL03xj6Lw&s",
+    categoria: "Scoperte",
+    published: true,
   },
   {
-    id: 3,
-    titolo: "Post 3",
-    contenuto: "Questo è il contenuto del terzo post.",
-    immagine: "/images/pane_fritto_dolce.jpeg",
-    tags: ["notizie", "aggiornamenti", "novità"],
+    autore: "Luca Assisi",
+    contenuto: "Warzonata?",
+    immagine:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PA-ZUKVhMSZxnX1X54Fwmvh-4HL03xj6Lw&s",
+    categoria: "Giochi",
+    published: true,
   },
   {
-    id: 4,
-    titolo: "Post 4",
-    contenuto: "Questo è il contenuto del quarto post.",
-    immagine: "/images/pasta_barbabietola.jpeg",
-    tags: ["idee", "progetto", "ispirazione"],
+    autore: "Anna Pela",
+    contenuto: "Preferisco CS:GO",
+    immagine:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PA-ZUKVhMSZxnX1X54Fwmvh-4HL03xj6Lw&s",
+    categoria: "Giochi",
+    published: true,
   },
   {
-    id: 5,
-    titolo: "Post 5",
-    contenuto: "Questo è il contenuto del quinto post.",
-    immagine: "/images/torta_paesana.jpeg",
-    tags: ["blog", "tecnologia", "coding"],
+    autore: "Paolo Dolo",
+    contenuto: "Qualcuno ha visto l'ultima serie TV?",
+    immagine:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PA-ZUKVhMSZxnX1X54Fwmvh-4HL03xj6Lw&s",
+    categoria: "Tv",
+    published: true,
   },
 ];
-
 module.exports = posts;
