@@ -20,6 +20,7 @@
 // Buon Lavoro e buon divertimento
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 3000;
 const postsRouter = require("./routers/posts");
