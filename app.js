@@ -28,6 +28,7 @@ const errorMiddleware = require("./middlewares/errorMiddleware.js");
 
 app.use(express.static("public"));
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Server del mio blog");
